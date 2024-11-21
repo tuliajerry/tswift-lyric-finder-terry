@@ -1,7 +1,19 @@
 {{> header}}
+
 <main>
-  <h1>This is the home page!</h1>
-  <p>Currently, you are {{#unless isLoggedIn}} NOT {{/unless}} logged in.</p>
-  <p>You should {{#unless isLoggedIn}}NOT{{/unless}} be able to access <a href="/private">this page</a>.</p>
-  <p>Use the header above to {{#if isLoggedIn}} logout{{else}} login or create an account{{/if}}.</p>
+  <h1>Welcome to the Taylor Swift Lyric Finder!</h1>
+  
+  <form action="/api/search" method="GET">
+    <input type="text" name="song" placeholder="Enter song title..." required>
+    <button type="submit">Search Lyrics</button>
+  </form>
+
+  {{#if error}}
+    <p class="error">{{error}}</p>
+  {{/if}}
+
+  {{#if song}}
+    <h2>{{song.title}} by {{song.artist}}</h2>
+    <p>{{lyrics}}</p>
+  {{/if}}
 </main>
