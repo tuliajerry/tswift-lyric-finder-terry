@@ -1,19 +1,17 @@
 {{> header}}
-
 <main>
-  <h1>Welcome to the Taylor Swift Lyric Finder!</h1>
-  
-  <form action="/api/search" method="GET">
-    <input type="text" name="song" placeholder="Enter song title..." required>
-    <button type="submit">Search Lyrics</button>
+  <h1>Search for Taylor Swift Lyrics</h1>
+  <form action="/search" method="GET">
+    <input type="text" name="song" placeholder="Enter song title" required>
+    <button type="submit">Search</button>
   </form>
-
-  {{#if error}}
-    <p class="error">{{error}}</p>
-  {{/if}}
 
   {{#if song}}
     <h2>{{song.title}} by {{song.artist}}</h2>
-    <p>{{lyrics}}</p>
+    <pre>{{song.lyrics}}</pre>
+  {{/if}}
+
+  {{#if error}}
+    <p class="error">{{error}}</p>
   {{/if}}
 </main>
