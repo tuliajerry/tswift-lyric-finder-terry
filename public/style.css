@@ -95,15 +95,22 @@ main {
 
 .result pre {
   background: #fff;
-  padding: 20px;
+  padding: 30px; /* Adds more space inside the text box */
   border-radius: 8px;
   border: 1px solid #ddd;
-  overflow-x: auto;
+  overflow-y: auto; /* Enables scrolling if lyrics are too long */
   font-family: 'Courier New', Courier, monospace;
   color: #333;
-  white-space: pre-wrap;
+  white-space: pre-wrap; /* Wraps text within the container */
   word-wrap: break-word;
+  line-height: 1.6; /* Increases line spacing for better readability */
+  max-width: 100%; /* Ensure it stretches to full width */
+  max-height: 500px; /* Limit the height of the text box */
+  margin: 20px auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: block;
 }
+
 
 /* Error Section */
 .error {
