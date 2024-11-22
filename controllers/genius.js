@@ -1,6 +1,7 @@
 const axios = require("axios");
+require('dotenv').config(); 
 
-const API_KEY = "OxsYae5i3dufQpVRieZcQwT19iScI5fezXJf9V1DcRZfsxRL7f4hSnsG9gm_T0om"; 
+const API_KEY = process.env.OxsYae5i3dufQpVRieZcQwT19iScI5fezXJf9V1DcRZfsxRL7f4hSnsG9gm_T0om;  
 const BASE_URL = "https://api.genius.com";
 
 
