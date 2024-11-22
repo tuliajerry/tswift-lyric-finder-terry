@@ -8,6 +8,9 @@
 
   {{#if song}}
     <h2>{{song.title}} by {{song.artist}}</h2>
+    {{#if song.album_artwork_url}}
+      <img src="{{song.album_artwork_url}}" alt="{{song.title}} album cover">
+    {{/if}}
     <pre>{{song.lyrics}}</pre>
   {{/if}}
 
