@@ -1,128 +1,56 @@
-/* General Styles */
-body {
-  font-family: 'Lora', serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f6f0eb; /* Off-white background */
-  color: #222; /* Dark text for readability */
-}
-
 /* Header */
 header {
-  background-image: url('https://wallpapercave.com/wp/wp13938349.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 60vh;
+  background-image: url('https://wallpapercave.com/wp/wp13938349.jpg'); /* Your chosen background image */
+  background-size: cover; /* Ensures the image covers the entire header */
+  background-position: center; /* Keeps the image centered */
+  height: 70vh; /* Adjust height to fit your preference */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Centers content horizontally */
+  text-align: center; /* Ensures text is centered */
+  color: #fff; /* White text for contrast */
+  position: relative; /* Allows for overlay if you want it */
+  padding: 0 20px; /* Optional padding for smaller screens */
 }
 
+/* Optional: Overlay to darken the background */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay */
+  z-index: 1; /* Ensures the overlay is behind the text */
+}
+
+/* Header Text */
 header h1 {
-  font-size: 3rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  font-size: 4rem; /* Larger font size for the title */
+  font-family: 'Lora', serif; /* Elegant serif font */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Adds a subtle shadow for better contrast */
   margin: 0;
+  z-index: 2; /* Keeps the text on top of the overlay */
 }
 
 header p {
-  font-size: 1.2rem;
+  font-size: 1.5rem; /* Subtitle text */
   margin-top: 10px;
+  font-family: 'Arial', sans-serif; /* Simple sans-serif font for contrast */
+  font-weight: 300;
+  z-index: 2; /* Keeps the text on top of the overlay */
 }
 
-/* Main Content */
-main {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+/* Make sure text doesn't overflow on small screens */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 3rem; /* Smaller font size on mobile */
+  }
+
+  header p {
+    font-size: 1.2rem; /* Smaller subtitle text on mobile */
+  }
 }
 
-/* Search Section */
-.search {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.search form {
-  display: inline-block;
-}
-
-.search input {
-  width: 300px;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.search button {
-  background-color: #d4af37; /* Taylor-inspired gold */
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  margin-left: -4px;
-}
-
-.search button:hover {
-  background-color: #b48b2a;
-}
-
-/* Song Section */
-.result h2 {
-  font-size: 2rem;
-  text-align: center;
-  color: #b48b2a;
-}
-
-.result img {
-  max-width: 100%;
-  border-radius: 10px;
-  display: block;
-  margin: 20px auto;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.album-artwork {
-  width: 250px;  /* Set the width to 250px */
-  height: 250px; /* Set the height to 250px */
-  object-fit: cover;  /* Ensure the image doesn't stretch */
-  margin: 10px auto;  /* Center the image and add some margin */
-}
-
-.result pre {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  overflow-x: auto;
-  font-family: 'Courier New', Courier, monospace;
-  color: #333;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-/* Error Section */
-.error {
-  text-align: center;
-  color: red;
-  font-size: 1.2rem;
-  margin: 20px 0;
-}
-
-/* Footer */
-footer {
-  background-color: #222;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-}
-
-footer a {
-  color: #d4af37;
-  text-decoration: none;
-}
 
