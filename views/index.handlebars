@@ -1,10 +1,10 @@
 {{> header}}
 <main>
   <h1>Search for Taylor Swift Lyrics</h1>
-  <form action="/search" method="GET">
-    <input type="text" name="song" placeholder="Enter song title" required>
-    <button type="submit">Search</button>
-  </form>
+  <form action="/api/search" method="GET">
+  <input type="text" name="song" placeholder="Enter song title" required>
+  <button type="submit">Search</button>
+</form>
 
   {{#if song}}
     <h2>{{song.title}} by {{song.artist}}</h2>
