@@ -1,20 +1,45 @@
-{{> header}}
-<main>
-  <h1>Search for Taylor Swift Lyrics</h1>
-  <form action="/api/search" method="GET">
-  <input type="text" name="song" placeholder="Enter song title" required>
-  <button type="submit">Search</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taylor Swift Lyrics Finder</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Taylor Swift Lyrics Finder</h1>
+      <p>Find your favorite Taylor Swift songs and lyrics</p>
+    </div>
+  </header>
 
-  {{#if song}}
-    <h2>{{song.title}} by {{song.artist}}</h2>
-    {{#if song.album_artwork_url}}
+  <main>
+    <section class="search">
+      <form action="/search" method="GET">
+        <input type="text" name="song" placeholder="Enter song title" required>
+        <button type="submit"><i class="fas fa-search"></i> Search</button>
+      </form>
+    </section>
+
+    {{#if song}}
+    <section class="result">
+      <h2>{{song.title}} by {{song.artist}}</h2>
       <img src="{{song.album_artwork_url}}" alt="{{song.title}} album cover">
+      <pre>{{song.lyrics}}</pre>
+    </section>
     {{/if}}
-    <pre>{{song.lyrics}}</pre>
-  {{/if}}
 
-  {{#if error}}
-    <p class="error">{{error}}</p>
-  {{/if}}
-</main>
+    {{#if error}}
+    <section class="error">
+      <p>{{error}}</p>
+    </section>
+    {{/if}}
+  </main>
+
+  <footer>
+    <p>© 2024 Taylor Swift Lyrics Finder. All rights reserved. | <a href="/">Home</a></p>
+  </footer>
+</body>
+</html>
