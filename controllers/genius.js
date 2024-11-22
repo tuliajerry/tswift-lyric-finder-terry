@@ -7,33 +7,31 @@ const BASE_URL = "https://api.genius.com";
 
 const searchSong = async (songTitle) => {
   try {
-   
     const searchResponse = await axios.get(`${BASE_URL}/search`, {
       params: { q: songTitle },
       headers: { Authorization: `Bearer ${API_KEY}` },
     });
 
-   
     const hits = searchResponse.data.response.hits;
     if (hits.length > 0) {
-     
       const song = hits[0].result;
-      
+
      
       const lyricsResponse = await axios.get(song.url);
-      const lyrics = extractLyricsFromPage(lyricsResponse.data); 
+      const lyrics = extractLyricsFromPage(lyricsResponse.data);
 
       return {
         title: song.title,
         artist: song.primary_artist.name,
         lyrics: lyrics,
+        album_artwork_url: song.song_art_image_url, 
       };
     } else {
       return null; 
     }
   } catch (error) {
     console.error("Error fetching song data:", error);
-    return null;
+    return null; 
   }
 };
 
