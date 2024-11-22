@@ -17,10 +17,10 @@
 
   <main>
     <section class="search">
-      <form action="/search" method="GET">
-        <input type="text" name="song" placeholder="Enter song title" required>
-        <button type="submit"><i class="fas fa-search"></i> Search</button>
-      </form>
+      <form action="/api/search" method="get">
+    <input type="text" name="song" placeholder="Enter song title">
+    <button type="submit">Search</button>
+</form>
     </section>
 
     {{#if song}}
