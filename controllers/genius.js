@@ -1,12 +1,13 @@
 const axios = require("axios");
 require('dotenv').config(); 
 
-const API_KEY = process.env.OxsYae5i3dufQpVRieZcQwT19iScI5fezXJf9V1DcRZfsxRL7f4hSnsG9gm_T0om;  
-const BASE_URL = "https://api.genius.com";
 
+const API_KEY = process.env.GENIUS_API_KEY;  
+const BASE_URL = "https://api.genius.com";
 
 const searchSong = async (songTitle) => {
   try {
+   
     const searchResponse = await axios.get(`${BASE_URL}/search`, {
       params: { q: songTitle },
       headers: { Authorization: `Bearer ${API_KEY}` },
@@ -20,6 +21,7 @@ const searchSong = async (songTitle) => {
       const lyricsResponse = await axios.get(song.url);
       const lyrics = extractLyricsFromPage(lyricsResponse.data);
 
+      
       return {
         title: song.title,
         artist: song.primary_artist.name,
@@ -42,7 +44,7 @@ const extractLyricsFromPage = (html) => {
   if (match && match[1]) {
     return match[1].replace(/<br\s*\/?>/g, "\n"); 
   } else {
-    return "Lyrics not found";
+    return "Lyrics not found"; 
   }
 };
 
