@@ -10,7 +10,9 @@
 <body>
   <header>
     <div>
-      <h1>Taylor Swift Lyrics Finder</h1>
+      <a href="/" class="header-link">
+        <h1>Taylor Swift Lyrics Finder</h1>
+      </a>
       <p>Find your favorite Taylor Swift songs and lyrics</p>
     </div>
   </header>
@@ -18,9 +20,9 @@
   <main>
     <section class="search">
       <form action="/api/search" method="get">
-    <input type="text" name="song" placeholder="Enter song title">
-    <button type="submit">Search</button>
-</form>
+        <input type="text" name="song" placeholder="Enter song title">
+        <button type="submit">Search</button>
+      </form>
     </section>
 
     {{#if song}}
